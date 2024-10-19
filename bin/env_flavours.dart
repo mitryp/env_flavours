@@ -3,10 +3,12 @@ import 'package:args/command_runner.dart';
 import 'package:env_flavours/src/domain/constants.dart';
 
 import 'commands/info.dart';
+import 'commands/set.dart';
 
 CommandRunner<void> buildRunner() {
   final commands = [
     InfoCommand(),
+    SetCommand(),
   ];
 
   final runner = CommandRunner(packageName, packageDescription);

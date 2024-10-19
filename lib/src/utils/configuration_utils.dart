@@ -15,3 +15,7 @@ extension ConfigurationsToMap on Iterable<EnvConfiguration> {
 extension ConfigurationToMapEntry on EnvConfiguration {
   MapEntry<String, File> toMapEntry() => MapEntry(name, file);
 }
+
+extension MapEntryToConfiguration on MapEntry<String, File> {
+  EnvConfiguration toConfiguration() => (name: key, file: value);
+}

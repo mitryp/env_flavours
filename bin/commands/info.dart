@@ -6,6 +6,7 @@ import 'package:env_flavours/src/utils/injections.dart';
 import 'package:io/ansi.dart';
 
 import '../config/run_configuration_parser.dart';
+import '../config/print_config.dart';
 
 class InfoCommand extends Command<void> {
   InfoCommand() {
@@ -22,7 +23,6 @@ class InfoCommand extends Command<void> {
   @override
   Future<void> run() async {
     final argResults = this.argResults!;
-
     final config = parseRunConfig(argResults);
 
     configureInjections() // register the parsed configuration
@@ -30,11 +30,7 @@ class InfoCommand extends Command<void> {
 
     final resolver = getIt<ConfigurationResolver>();
 
-    print(wrapWith('Applied configuration:', [cyan, styleBold]));
-    print(
-      '  env: ${wrapWith(config.envFileName, [styleBold])}\n'
-      '  sources: ${wrapWith(config.envDirName, [styleBold])}\n',
-    );
+    printConfig(config);
 
     print(wrapWith('Environments in \'${config.envDirName}\':', [cyan, styleBold]));
     final configurations = await resolver.resolveConfigurations();
