@@ -1,7 +1,7 @@
 name: env_flavours
-description: A sample command-line application with basic argument parsing.
-version: 0.0.1
-# repository: https://github.com/my_org/my_repo
+description: A CLI package to manage environment configurations for your projects
+version: 0.1.0
+repository: https://github.com/mitryp/env_flavours
 
 environment:
   sdk: ^3.5.3
