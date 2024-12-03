@@ -25,7 +25,8 @@ class EnvParserImpl implements EnvParser {
     }
 
     final lines = await file.readAsLines();
-    final maybeName = nameService.readNameDeclarationLine(lines.first);
+    final line = lines.firstOrNull;
+    final maybeName = line != null ? nameService.readNameDeclarationLine(line) : null;
 
     if (maybeName == null && cleanFileName.isEmpty) {
       return null;
