@@ -33,6 +33,6 @@ class EnvParserImpl implements EnvParser {
       return null;
     }
 
-    return (name: maybeName ?? '$cleanFileName (Unmanaged)', file: file);
+    return (name: maybeName ?? cleanFileName, file: file);
   }
 }
